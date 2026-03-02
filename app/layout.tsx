@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
   },
+  verification: {
+    google: "sHd9GFy0lNlMXxdvDJOSMaC_-6tsoCFHSnyAOhwCrPg",
+  },
 };
 
 export default function RootLayout({
@@ -67,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <meta name="google-site-verification" content="sHd9GFy0lNlMXxdvDJOSMaC_-6tsoCFHSnyAOhwCrPg" />
         <meta name="google-adsense-account" content="ca-pub-3939831601648260" />
         <script
           async
