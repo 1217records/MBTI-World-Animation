@@ -8,30 +8,109 @@ import { localizedAlternates } from "@/lib/seo";
 export const runtime = "edge";
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} | EN`,
-  description: "A story-driven MBTI test inspired by iconic anime worlds.",
+  title: `${SITE_NAME} — Anime MBTI Personality Test`,
+  description:
+    "Discover which anime character matches your MBTI type. Story-driven personality test across multiple anime worlds including One Piece, Naruto, and Pokémon. Find your character match in 2–3 minutes.",
   alternates: localizedAlternates("/", "en"),
   openGraph: {
-    title: `${SITE_NAME} | EN`,
-    description: "A story-driven MBTI test inspired by iconic anime worlds.",
+    title: `${SITE_NAME} — Anime MBTI Personality Test`,
+    description:
+      "Discover which anime character matches your MBTI type across multiple iconic anime worlds.",
     type: "website",
     url: `${SITE_ORIGIN}/en`,
     images: [
       {
-        url: `${SITE_ORIGIN}/og/home?v=2`,
-        width: 1200,
-        height: 630,
+        url: `${SITE_ORIGIN}/og-image.png`,
+        width: 800,
+        height: 800,
         alt: SITE_NAME,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | EN`,
-    description: "A story-driven MBTI test inspired by iconic anime worlds.",
-    images: [`${SITE_ORIGIN}/og/home?v=2`],
+    title: `${SITE_NAME} — Anime MBTI Personality Test`,
+    description:
+      "Discover which anime character matches your MBTI type. Story-driven test across iconic anime worlds.",
+    images: [`${SITE_ORIGIN}/og-image.png`],
   },
 };
+
+const WHY_CARDS = [
+  {
+    icon: "🎬",
+    title: "Scene-Based Immersive Questions",
+    body: "Instead of abstract checkboxes, we place you inside memorable anime moments. By reacting to real story situations, your natural decision-making patterns emerge without overthinking.",
+  },
+  {
+    icon: "🔗",
+    title: "Results Tied to Character Narrative",
+    body: "Your result isn't just a 4-letter label — it explains why that character resonates with you. Strengths, stress responses, and relationship patterns are all connected to the character's own story.",
+  },
+  {
+    icon: "⚖️",
+    title: "Balanced 4-Axis Design",
+    body: "All 16 questions are distributed equally across E/I, S/N, T/F, and J/P — 4 questions each. This prevents bias toward any single dimension and produces consistent, reliable results.",
+  },
+  {
+    icon: "🛡️",
+    title: "Neutral & Respectful Tone",
+    body: "No type is better or worse. Every result description uses positive, balanced language. We avoid stereotypes and never frame any personality tendency as a flaw.",
+  },
+  {
+    icon: "📊",
+    title: "In-Depth Result Report",
+    body: "Beyond your type summary, the result page covers relationship style, work approach, stress patterns, and growth focus. It's a fun test — but one that genuinely makes you think.",
+  },
+  {
+    icon: "🌐",
+    title: "Multiple Anime Worlds × 16 MBTI Types",
+    body: "From One Piece and Naruto to Pokémon and Jujutsu Kaisen — each world features 16 unique character matches across all MBTI types. Start with your favorite anime.",
+  },
+];
+
+const FAQ = [
+  {
+    q: "What does this site offer?",
+    a: "Story-driven MBTI tests set in anime worlds, paired with character matching and a detailed personality report.",
+    schema: true,
+  },
+  {
+    q: "How long does the test take?",
+    a: "Each world has 16 questions and typically takes 2 to 3 minutes to complete.",
+    schema: true,
+  },
+  {
+    q: "How are the questions designed?",
+    a: "Each world uses 16 scenario-based questions, with 4 questions per MBTI axis (E/I, S/N, T/F, J/P), ensuring a balanced and consistent result.",
+    schema: true,
+  },
+  {
+    q: "How should I use the result?",
+    a: "Use it as a self-reflection guide, not an absolute diagnosis. The strength, stress, and relationship sections can offer real-life insights.",
+    schema: true,
+  },
+  {
+    q: "Does this result diagnose my personality?",
+    a: "No. This is entertainment and self-reflection content. MBTI types represent relative tendencies, not fixed identities — treat it as a starting point for self-exploration.",
+    schema: true,
+  },
+  {
+    q: "Can I retake the test?",
+    a: "Yes. You can retake the same world or try a different anime world at any time. No sign-up required.",
+    schema: false,
+  },
+  {
+    q: "Are my results saved?",
+    a: "No. Results are not stored on our servers. You can copy the result link or share it via Kakao or X to keep a record.",
+    schema: false,
+  },
+  {
+    q: "Why do results differ across anime worlds?",
+    a: "The same person may respond differently depending on the situation. Each world presents a unique narrative context, so testing across multiple worlds can reveal different facets of your personality.",
+    schema: false,
+  },
+];
 
 export default function HomeEn() {
   const jsonLd = [
@@ -48,76 +127,28 @@ export default function HomeEn() {
       name: SITE_NAME,
       applicationCategory: "Entertainment",
       operatingSystem: "Web",
-      description: `Story-driven MBTI test by ${SITE_NAME}`,
+      description: `Discover which anime character matches your MBTI type. Story-driven personality test by ${SITE_NAME}.`,
       url: `${SITE_ORIGIN}/en`,
     },
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What does this site offer?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Story-driven MBTI tests with character-based result interpretation.",
-          },
+      mainEntity: FAQ.filter((f) => f.schema).map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.a,
         },
-        {
-          "@type": "Question",
-          name: "How long does the test take?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Each world has 16 questions and typically takes around 2 to 3 minutes.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How should I use the result?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Use it as a reflection guide, not as an absolute diagnosis.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does this result diagnose my personality?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. This is entertainment and self-reflection content, not a clinical diagnosis.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How are the questions designed?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Each world uses 16 scenario-based questions balanced across E/I, S/N, T/F, and J/P.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can I retake the test?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. You can retake the same world or try a different world at any time.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Are my results saved?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Results are not stored and can be viewed on the current screen only.",
-          },
-        },
-      ],
+      })),
     },
   ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] text-center gap-12">
       <JsonLd data={jsonLd} />
+
+      {/* Hero */}
       <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
         <div className="inline-block px-4 py-1.5 rounded-full bg-[#16324f]/10 text-[#16324f] text-xs font-bold tracking-widest uppercase mb-2">
           Story-driven Personality Test
@@ -129,9 +160,8 @@ export default function HomeEn() {
           </span>
         </h1>
         <p className="text-gray-500 max-w-lg mx-auto leading-relaxed text-sm sm:text-base">
-          What would you do if you were in a legendary anime scene?
-          <br />
-          Answer 16 story-based questions and meet your character match.
+          What would you do if you were inside a legendary anime scene?<br />
+          Multiple anime worlds × 16 MBTI types — find the character that matches your soul.
         </p>
       </div>
 
@@ -142,32 +172,39 @@ export default function HomeEn() {
           format="horizontal"
         />
 
-        <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-4">
-          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">How the Test Works</h2>
+        {/* How It Works */}
+        <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">🧭 How the Test Works</h2>
           <p className="text-gray-600 leading-relaxed">
-            Each world includes 16 questions. Your choices map to the four MBTI dimensions (E/I, S/N, T/F, J/P).
-            We interpret the result through story context to make it intuitive and memorable.
+            Choose an anime world you love, then answer 16 scenario-based questions set inside that world.
+            For each question, pick the option that feels most natural to you — there are no right or wrong answers.
+            Because these feel like real story choices rather than a checklist, you can answer intuitively and quickly.
+            After finishing, you'll instantly see which of the 16 MBTI characters matches you best, along with a detailed personality report.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500">
             <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-              <p className="font-bold text-[#16324f]">Questions</p>
-              <p>16 per world</p>
+              <p className="font-bold text-[#16324f] mb-1">Questions</p>
+              <p>16 per world<br />(4 per MBTI axis)</p>
             </div>
             <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-              <p className="font-bold text-[#16324f]">Time</p>
-              <p>2–3 minutes</p>
+              <p className="font-bold text-[#16324f] mb-1">Time</p>
+              <p>2–3 minutes<br />(No sign-up needed)</p>
             </div>
             <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-              <p className="font-bold text-[#16324f]">Output</p>
-              <p>Type + Character</p>
+              <p className="font-bold text-[#16324f] mb-1">Output</p>
+              <p>Character match +<br />In-depth report</p>
             </div>
           </div>
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-500">
-            <p className="font-bold text-[#16324f]">Design Principle</p>
-            <p>Each question balances the four MBTI axes to keep results consistent.</p>
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-4 text-sm text-gray-500">
+            <p className="font-bold text-[#16324f] mb-1">📌 Design Principle</p>
+            <p>
+              Questions are balanced across all four MBTI axes (E/I, S/N, T/F, J/P) with 4 questions each,
+              ensuring no single dimension is over-represented in your result.
+            </p>
           </div>
         </div>
 
+        {/* CTA */}
         <div className="flex flex-col items-center gap-4 w-full">
           <Link
             href="/en/select"
@@ -189,61 +226,70 @@ export default function HomeEn() {
             >
               Privacy
             </Link>
+            <span className="text-[#16324f]/40" aria-hidden="true">·</span>
+            <Link
+              href="/en/terms"
+              className="hover:text-[#0f2338] underline underline-offset-4 decoration-transparent hover:decoration-[#16324f]/60 transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
 
         <div className="h-6 sm:h-8" />
-        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Why This Test Feels Different</h2>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-            MBTI WORLD ANIMATION is a story-first personality test that focuses on how you actually choose when you are immersed in a scene.
-            Instead of ticking generic boxes, we place you inside meaningful moments and observe what feels most natural to you.
-            The result is not just a type label, but a narrative that connects strengths, blind spots, and relationship patterns.
-          </p>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-            We emphasize clarity, context, and balance. Your results explain both strengths and cautions, and are meant for self-reflection rather than diagnosis.
-            The goal is simple: make the journey fun, and the reflection meaningful.
-          </p>
-          <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Story-based</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#MBTI Insights</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Character Match</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Self-Reflection</span>
+
+        {/* Why Special */}
+        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-8">
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl font-black font-serif text-[#16324f]">Why This Test Feels Different</h2>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xl mx-auto">
+              Unlike most MBTI quizzes, MBTI WORLD uses <strong className="text-[#16324f]/80">story-based choices</strong> to surface
+              more natural and believable results.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {WHY_CARDS.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-2 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{card.icon}</span>
+                  <h3 className="font-bold text-[#16324f]">{card.title}</h3>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed">{card.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 text-sm text-gray-600 leading-relaxed space-y-2">
+            <p className="font-bold text-[#16324f]">💡 In One Line</p>
+            <p>
+              MBTI WORLD is entertaining — but it's designed so that after reading your result,
+              you'll want to think more carefully about your strengths, relationship patterns, and how you handle stress.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 text-xs text-gray-400">
+            {["#Story-based MBTI", "#Anime Personality Test", "#Character Match", "#MBTI Insights", "#Self-Reflection", "#Relationship Patterns"].map((tag) => (
+              <span key={tag} className="px-3 py-1.5 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">{tag}</span>
+            ))}
           </div>
         </section>
 
         <div className="h-6 sm:h-8" />
+
+        {/* FAQ */}
         <div className="bg-white/80 rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
           <h2 className="text-2xl font-black font-serif text-[#16324f]">💬 Frequently Asked Questions</h2>
           <div className="space-y-5 text-sm text-gray-600 leading-relaxed">
-            <div>
-              <p className="font-bold text-[#16324f]">Q. What does this site offer?</p>
-              <p>A. Story-driven MBTI tests with character-based result interpretation.</p>
-            </div>
-            <div>
-              <p className="font-bold text-[#16324f]">Q. How long does the test take?</p>
-              <p>A. Each world has 16 questions and typically takes around 2 to 3 minutes.</p>
-            </div>
-            <div>
-              <p className="font-bold text-[#16324f]">Q. How should I use the result?</p>
-              <p>A. Use it as a reflection guide, not as an absolute diagnosis.</p>
-            </div>
-            <div>
-              <p className="font-bold text-[#16324f]">Q. Does this result diagnose my personality?</p>
-              <p>A. No. This is entertainment and self-reflection content, not a clinical diagnosis.</p>
-            </div>
-            <div>
-              <p className="font-bold text-[#16324f]">Q. How are the questions designed?</p>
-              <p>A. Each world uses 16 scenario-based questions balanced across E/I, S/N, T/F, and J/P.</p>
-            </div>
-            <div>
-              <p className="font-bold text-[#16324f]">Q. Can I retake the test?</p>
-              <p>A. Yes. You can retake the same world or try a different world at any time.</p>
-            </div>
-            <div>
-              <p className="font-bold text-[#16324f]">Q. Are my results saved?</p>
-              <p>A. No. Results are not stored and can be viewed on the current screen only.</p>
-            </div>
+            {FAQ.map((item) => (
+              <div key={item.q} className="border-b border-gray-50 pb-4 last:border-0 last:pb-0">
+                <p className="font-bold text-[#16324f] mb-1">Q. {item.q}</p>
+                <p className="text-gray-500">A. {item.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
