@@ -11,12 +11,12 @@ export const runtime = "edge";
 export const metadata: Metadata = {
   title: `${SITE_NAME} — 애니메이션 MBTI 테스트`,
   description:
-    "원피스·나루토·포켓몬 등 7개 애니메이션 세계관에서 나와 가장 닮은 캐릭터를 찾아보세요. MBTI 유형별 특징·궁합·관계 패턴을 스토리 기반으로 분석합니다.",
+    "원피스·나루토·포켓몬 등 애니메이션 세계관에서 나와 가장 닮은 캐릭터를 찾아보세요. MBTI 유형별 특징·궁합·관계 패턴을 스토리 기반으로 분석합니다.",
   alternates: localizedAlternates("/", "ko"),
   openGraph: {
     title: `${SITE_NAME} — 애니메이션 MBTI 테스트`,
     description:
-      "원피스·나루토·포켓몬 등 7개 애니메이션 세계관에서 나와 가장 닮은 캐릭터를 찾아보세요.",
+      "원피스·나루토·포켓몬 등 애니메이션 세계관에서 나와 가장 닮은 캐릭터를 찾아보세요.",
     type: "website",
     url: `${SITE_ORIGIN}/`,
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} — 애니메이션 MBTI 테스트`,
     description:
-      "원피스·나루토·포켓몬 등 7개 세계관에서 나와 가장 닮은 캐릭터를 찾아보세요.",
+      "원피스·나루토·포켓몬 등 세계관에서 나와 가장 닮은 캐릭터를 찾아보세요.",
     images: [`${SITE_ORIGIN}/og-image.png`],
   },
 };
@@ -65,15 +65,15 @@ const WHY_CARDS = [
   },
   {
     icon: "🌐",
-    title: "7개 세계관 × 16 MBTI 유형",
-    body: "원피스·나루토·강철의 연금술사·진격의 거인·짱구는 못말려·포켓몬·주술회전, 총 7개 세계관에서 각각 16명의 캐릭터를 매칭했습니다. 좋아하는 애니로 먼저 시작해 보세요.",
+    title: "애니메이션 세계관 × 16 MBTI 유형",
+    body: "원피스·나루토·강철의 연금술사·진격의 거인·짱구는 못말려·포켓몬·주술회전 등 다양한 세계관에서 각각 16명의 캐릭터를 매칭했습니다. 좋아하는 애니로 먼저 시작해 보세요.",
   },
 ];
 
 const FAQ = [
   {
     q: "이 사이트는 무엇을 제공하나요?",
-    a: "7개의 애니메이션 세계관을 배경으로 한 MBTI 테스트와, 나와 닮은 캐릭터 매칭 결과·상세 성향 분석을 제공합니다.",
+    a: "애니메이션 세계관을 배경으로 한 MBTI 테스트와, 나와 닮은 캐릭터 매칭 결과·상세 성향 분석을 제공합니다.",
     schema: true,
   },
   {
@@ -121,7 +121,7 @@ export default function Home() {
       name: SITE_NAME,
       applicationCategory: "Entertainment",
       operatingSystem: "Web",
-      description: `원피스·나루토·포켓몬 등 7개 애니메이션 세계관에서 나와 가장 닮은 MBTI 캐릭터를 찾아보세요. ${SITE_NAME}`,
+      description: `원피스·나루토·포켓몬 등 애니메이션 세계관에서 나와 가장 닮은 MBTI 캐릭터를 찾아보세요. ${SITE_NAME}`,
       url: `${SITE_ORIGIN}/`,
     },
     {
@@ -155,7 +155,7 @@ export default function Home() {
         </h1>
         <p className="text-gray-500 max-w-lg mx-auto leading-relaxed text-sm sm:text-base">
           애니메이션 속 명장면을 내가 겪는다면?<br />
-          7개 세계관 × 16 MBTI 유형, 나와 가장 닮은 캐릭터를 찾아보세요.
+          다양한 애니메이션 세계관 × 16 MBTI 유형, 나와 가장 닮은 캐릭터를 찾아보세요.
         </p>
       </div>
 
