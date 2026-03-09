@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import PromoBanner from "@/components/PromoBanner";
 import { THEMES, CONTENTS } from "@/data";
 import { MBTI_Value } from "@/types";
 
@@ -99,7 +100,7 @@ export default function TestClient({ themeId }: TestClientProps) {
         </div>
       </div>
 
-      <div className="pt-4 flex justify-between items-center">
+      <div className="pt-4 flex justify-between items-center pb-8">
         <div className="flex gap-6">
           <Link href="/select" className="text-sm font-bold text-gray-300 hover:text-[#16324f] transition-colors">
             테스트 선택으로
@@ -114,6 +115,8 @@ export default function TestClient({ themeId }: TestClientProps) {
         </div>
         <div className="text-[10px] text-gray-300 uppercase tracking-widest font-bold">Auto Next on Selection</div>
       </div>
+
+      <PromoBanner />
     </div>
   );
 }
