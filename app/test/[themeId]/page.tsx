@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import { CONTENTS, THEMES } from "@/data";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
+import PromoBanner from "@/components/PromoBanner";
 import TestClient from "./TestClient";
 
 type PageProps = {
@@ -90,6 +91,8 @@ export default async function TestPage({ params }: PageProps) {
         </p>
         <TestClient themeId={theme.id} />
       </section>
+
+      <PromoBanner />
     </div>
   );
 }
