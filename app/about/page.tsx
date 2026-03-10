@@ -97,8 +97,8 @@ export default function About() {
               <span className="text-2xl">🔍</span>
               <h3 className="font-bold text-[#16324f]">정밀한 캐릭터 매칭</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                수천 번의 캐릭터 분석과 MBTI 이론 교차 검증을 통해 가장 높은 싱크로율을 찾아냈습니다.
-                장면별 반응 패턴을 재차 대조하며, 결과에 일관성 있게 공감할 수 있는 조합만 남겼습니다.
+                캐릭터의 성격 특성과 MBTI 유형의 특징을 비교·분석하여 공감되는 조합을 선별했습니다.
+                각 캐릭터의 행동 패턴과 유형 특성이 자연스럽게 연결되도록 문항과 결과를 다듬었습니다.
               </p>
             </div>
             <div className="p-8 rounded-3xl bg-[#fdfcf9] border border-gray-100 space-y-3">
