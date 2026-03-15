@@ -56,6 +56,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     body:
       "주술고전의 임무, 주령과의 전투, 영역 전개 같은 핵심 설정 속 선택을 통해 당신의 전투 판단과 관계 패턴을 분석합니다. 16문항으로 MBTI 성향을 도출하고 캐릭터 매칭까지 연결합니다.",
   },
+  bleach: {
+    headline: "블리치 세계관 테스트",
+    body:
+      "호정 13대, 웨코문드, 참백도와 만해 같은 핵심 설정 속 선택으로 당신의 전투 감각과 신념, 임무 스타일을 읽어냅니다. 16문항을 통해 MBTI 성향과 닮은 블리치 캐릭터를 연결합니다.",
+  },
   pokemon: {
     headline: "포켓몬 1-2세대 세계관 테스트",
     body:
@@ -63,7 +68,19 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
   },
 };
 
+const THEME_ORDER = ["onepiece", "naruto", "bleach"];
+
 export default function TestSelect() {
+  const orderedThemes = Object.values(THEMES).sort((a, b) => {
+    const aIndex = THEME_ORDER.indexOf(a.id);
+    const bIndex = THEME_ORDER.indexOf(b.id);
+
+    if (aIndex === -1 && bIndex === -1) return 0;
+    if (aIndex === -1) return 1;
+    if (bIndex === -1) return -1;
+    return aIndex - bIndex;
+  });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -107,8 +124,8 @@ export default function TestSelect() {
         </p>
       </section>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {Object.values(THEMES).map((theme) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {orderedThemes.map((theme) => (
           <Link 
             key={theme.id}
             href={`/test/${theme.id}`}
@@ -120,7 +137,9 @@ export default function TestSelect() {
               <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl shadow-inner">
                 {theme.emoji}
               </div>
-              <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">{theme.label}</h2>
+              <h2 className="text-xl lg:text-[1.15rem] font-black font-slab text-[#16324f] whitespace-nowrap leading-tight">
+                {theme.label}
+              </h2>
             </div>
             
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -155,7 +174,7 @@ export default function TestSelect() {
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">테스트별 특징</h2>
         <div className="space-y-6">
-          {Object.values(THEMES).map((theme) => {
+          {orderedThemes.map((theme) => {
             const detail = THEME_DETAILS[theme.id] ?? {
               headline: `${theme.label} 세계관 테스트`,
               body: `${theme.label}의 장면을 통해 MBTI 유형별 특징과 궁합을 분석합니다.`,

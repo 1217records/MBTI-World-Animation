@@ -44,6 +44,7 @@ const THEME_LABELS_JA: Record<string, string> = {
   aot: "進撃の巨人",
   shinchan: "クレヨンしんちゃん",
   jujutsu: "呪術廻戦",
+  bleach: "BLEACH",
   pokemon: "ポケモン 第1・2世代",
 };
 

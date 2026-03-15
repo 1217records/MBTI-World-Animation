@@ -31,6 +31,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   aot: "Attack on Titan",
   shinchan: "Crayon Shin-chan",
   jujutsu: "Jujutsu Kaisen",
+  bleach: "Bleach",
   pokemon: "Pokemon Gen 1-2",
 };
 
@@ -64,6 +65,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     headline: "Jujutsu Kaisen World Test",
     body:
       "Through missions, curse fights, and Domain Expansion choices, this test tracks your combat judgment, value system, and relationship style across 16 questions.",
+  },
+  bleach: {
+    headline: "Bleach World Test",
+    body:
+      "Step into the Gotei 13, Hueco Mundo, and Zanpakuto training to reveal how you fight, judge, and lead under pressure across 16 story-driven questions.",
   },
   pokemon: {
     headline: "Pokemon Gen 1-2 World Test",
